@@ -36,6 +36,9 @@ jobs:
       # 12
       - name: Get dependencies
         run: flutter pub get
+        
+      - name: upgrade
+        run: flutter upgrade
 
       # Runs a set of commands using the runners shell
       - name: Start release build
