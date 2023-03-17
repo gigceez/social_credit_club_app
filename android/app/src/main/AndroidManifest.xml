@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.social_credit_club_app">
+    package="com.example.social_credit_app_club">
    <application
-        android:label="social_credit_club_app"
+        android:label="social_credit_app_club"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

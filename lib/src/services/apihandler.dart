@@ -5,8 +5,7 @@ import 'package:http/http.dart' as http;
 import 'package:social_credit_club_app/src/model/authenticationresponse.dart';
 import 'package:social_credit_club_app/src/model/user.dart';
 
-
-const url = 'https://a84a-185-10-158-5.ngrok.io/';
+const url = 'https://a84a-185-10-158-5.ngrok.io';
 
 Future<AuthenticationResponse> login(String username, String password) async {
   var response = await http.post(
@@ -68,6 +67,22 @@ Future<User> getUserById(String id) async {
   var result = User.fromJson(response.body);
 
   return result;
+}
+
+Future<bool> registerUserById(User user) async {
+  var response = await http.post(Uri.parse('$url/clubs/register'),
+      body: jsonEncode({
+        'id': user.id
+      }),
+      headers: {'authorization': await getToken()});
+
+  print(response.body);
+
+  if (response.statusCode != 200) {
+    throw Exception();
+  }
+
+  return true;
 }
 
 Future<void> saveToken(String token) async {
