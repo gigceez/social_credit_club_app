@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:social_credit_club_app/src/model/user.dart';
+import 'package:social_credit_club_app/src/pages/guestlist/guestlist.dart';
+import 'package:social_credit_club_app/src/services/apihandler.dart';
 
 class GuestlistCard extends StatelessWidget {
   const GuestlistCard({required this.user, super.key});
@@ -33,21 +35,81 @@ class GuestlistCard extends StatelessWidget {
           children: [
             Text(
               'Score: ${user.rating}',
-              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () async {
+                    adjustUserRasting(user, 1).then(
+                      (value) {
+                        if (value) {
+                          print('Mooi werk');
+                          Navigator.of(context).pushReplacement(
+                            MaterialPageRoute(
+                              builder: (context) => const Guestlist(),
+                            ),
+                          );
+                        } else {
+                          print('GING NIET GOED!');
+                          Navigator.of(context).pushReplacement(
+                            MaterialPageRoute(
+                              builder: (context) => const Guestlist(),
+                            ),
+                          );
+                        }
+                      },
+                    );
+                  },
                   icon: const Icon(Icons.favorite_border_outlined),
                 ),
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () async {
+                    adjustUserRasting(user, -1).then(
+                      (value) {
+                        if (value) {
+                          print('Mooi werk');
+                          Navigator.of(context).pushReplacement(
+                            MaterialPageRoute(
+                              builder: (context) => const Guestlist(),
+                            ),
+                          );
+                        } else {
+                          print('GING NIET GOED!');
+                          Navigator.of(context).pushReplacement(
+                            MaterialPageRoute(
+                              builder: (context) => const Guestlist(),
+                            ),
+                          );
+                        }
+                      },
+                    );
+                  },
                   icon: const Icon(Icons.heart_broken_outlined),
                 ),
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () async {
+                    kickUser(user).then(
+                      (value) {
+                        if (value) {
+                          print('Mooi werk');
+                          Navigator.of(context).pushReplacement(
+                            MaterialPageRoute(
+                              builder: (context) => const Guestlist(),
+                            ),
+                          );
+                        } else {
+                          print('GING NIET GOED!');
+                          Navigator.of(context).pushReplacement(
+                            MaterialPageRoute(
+                              builder: (context) => const Guestlist(),
+                            ),
+                          );
+                        }
+                      },
+                    );
+                  },
                   icon: const Icon(Icons.back_hand_outlined),
                 )
               ],

@@ -34,7 +34,7 @@ class _ScannerState extends State<Scanner> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('scan'),
+        title: Text(widget.title),
       ),
       body: FutureBuilder(
         future: completer.future,
