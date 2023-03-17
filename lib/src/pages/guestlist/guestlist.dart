@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:social_credit_club_app/src/model/guest.dart';
+import 'package:social_credit_club_app/src/model/user.dart';
+import 'package:social_credit_club_app/src/pages/guestlist/widget/guestlistcard.dart';
 import 'package:social_credit_club_app/src/pages/scan/scanner.dart';
 
 class Guestlist extends StatefulWidget {
@@ -10,21 +12,53 @@ class Guestlist extends StatefulWidget {
 }
 
 class _GuestlistState extends State<Guestlist> {
+  List<User> users = [
+    User(
+      birthdate: '28-8-1980',
+      id: '1',
+      rating: 10,
+      role: Role.customer,
+      username: 'Bob',
+    ),
+    User(
+      birthdate: '31-8-1995',
+      id: '2',
+      rating: 10,
+      role: Role.customer,
+      username: 'Cees',
+    ),
+  ];
 
-final Future<List<Guest>> _getGuests = Future<List<Guest>>(() => [Guest(),Guest(),]);
+  late final Future<List<User>> _getGuests;
+  @override
+  void initState() {
+    super.initState();
+    _getGuests = Future<List<User>>(() => users);
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: FutureBuilder<List<Guest>>(
-        future: _getGuests, 
-        builder: (BuildContext context, AsyncSnapshot<List<Guest>> snapshot) {
-          List<Widget> children;
+      body: FutureBuilder<List<User>>(
+        future: _getGuests,
+        builder: (BuildContext context, AsyncSnapshot<List<User>> snapshot) {
+          List<Widget> children = [];
           if (snapshot.hasData) {
-            children = <Widget>[
-              Text(snapshot.data.toString(),)
-            ];
+            for (User user in snapshot.data!) {
+              children.add(
+                Container(
+                    margin: const EdgeInsets.all(6),
+                    decoration: BoxDecoration(
+                      color: Colors.grey.shade800,
+                      borderRadius: BorderRadius.circular(4),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: GuestlistCard(user: user),
+                    )),
+              );
+            }
           } else if (snapshot.hasError) {
             children = <Widget>[
               const Icon(

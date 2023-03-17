@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_login/flutter_login.dart';
 import 'package:social_credit_club_app/main.dart';
+import 'package:social_credit_club_app/src/pages/guestlist/guestlist.dart';
 import 'package:social_credit_club_app/src/services/apihandler.dart';
 
 const loginOptions = LoginOptions(
@@ -41,7 +42,7 @@ class LoginScreen extends StatelessWidget {
           var a = await login(email, password);
           Navigator.of(context).push(
             MaterialPageRoute(
-              builder: (context) => const ClubScanner(),
+              builder: (context) => const Guestlist(),
             ),
           );
         },
