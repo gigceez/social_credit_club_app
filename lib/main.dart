@@ -1,9 +1,8 @@
 import 'dart:typed_data';
-
 import 'package:flutter/material.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 
-import 'login.dart';
+import 'src/pages/login.dart';
 
 void main() {
   runApp(const MyApp());
