@@ -69,6 +69,22 @@ Future<User> getUserById(String id) async {
   return result;
 }
 
+Future<bool> registerUserById(User user) async {
+  var response = await http.post(Uri.parse('$url/clubs/register'),
+      body: jsonEncode({
+        'id': user.id
+      }),
+      headers: {'authorization': await getToken()});
+
+  print(response.body);
+
+  if (response.statusCode != 200) {
+    throw Exception();
+  }
+
+  return true;
+}
+
 Future<void> saveToken(String token) async {
   var preferences = await SharedPreferences.getInstance();
   await preferences.setString('token', token);
