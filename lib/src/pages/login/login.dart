@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_login/flutter_login.dart';
 import 'package:social_credit_club_app/main.dart';
-import 'package:social_credit_club_app/src/api/apihandler.dart';
+import 'package:social_credit_club_app/src/services/apihandler.dart';
 
 const loginOptions = LoginOptions(
     emailDecoration: InputDecoration(

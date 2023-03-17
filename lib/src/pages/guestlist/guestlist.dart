@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:social_credit_club_app/src/model/guest.dart';
-import 'package:social_credit_club_app/src/scan/scanner.dart';
+import 'package:social_credit_club_app/src/pages/scan/scanner.dart';
 
 class Guestlist extends StatefulWidget {
   const Guestlist({super.key});
