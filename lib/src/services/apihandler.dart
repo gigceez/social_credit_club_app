@@ -2,9 +2,9 @@ import 'dart:convert';
 
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
+import 'package:social_credit_club_app/src/model/authenticationresponse.dart';
+import 'package:social_credit_club_app/src/model/user.dart';
 
-import '../model/authenticationresponse.dart';
-import '../model/user.dart';
 
 const url = 'https://a84a-185-10-158-5.ngrok.io/';
 

@@ -2,7 +2,7 @@ import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
-import 'package:social_credit_club_app/src/scan/widget/clubmembercard.dart';
+import 'package:social_credit_club_app/src/pages/scan/widget/clubmembercard.dart';
 
 
 class Scanner extends StatefulWidget {
