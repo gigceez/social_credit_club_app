@@ -1,6 +1,7 @@
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
+import 'package:social_credit_club_app/src/pages/guestlist/guestlist.dart';
 
 import 'src/pages/login/login.dart';
 
@@ -20,7 +21,8 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         primarySwatch: Colors.blue,
       ),
-      home: const LoginExample(),
+      home: //const Guestlist(),
+          const LoginExample(),
     );
   }
 }
