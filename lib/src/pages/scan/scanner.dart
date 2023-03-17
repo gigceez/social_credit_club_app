@@ -1,15 +1,12 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:async';
 import 'dart:typed_data';
-
 import 'package:flutter/material.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 import 'package:social_credit_club_app/src/pages/guestlist/guestlist.dart';
 
 import 'package:social_credit_club_app/src/pages/scan/widget/clubmembercard.dart';
 import 'package:social_credit_club_app/src/services/apihandler.dart';
-
-import '../../model/user.dart';
 
 class Scanner extends StatefulWidget {
   const Scanner({
