@@ -78,3 +78,30 @@ Future<String> getToken() async {
   var preferences = await SharedPreferences.getInstance();
   return preferences.getString('token') ?? '';
 }
+
+Future<bool> kickUser(User user) async {
+  var id = user.id;
+  var response = await http.post(Uri.parse('$url/clubs/users/$id/kick'),
+      headers: {'authorization': await getToken()});
+
+  if (response.statusCode != 200) {
+    //throw Exception();
+    return false;
+  }
+  return true;
+}
+
+Future<bool> adjustUserRasting(User user, int ratingAdjustment) async {
+  var id = user.id;
+  var response = await http.post(Uri.parse('$url/clubs/users/$id/rate'),
+      body: json.encode({
+        'rating': ratingAdjustment,
+      }),
+      headers: {'authorization': await getToken()});
+
+  if (response.statusCode != 200) {
+    //throw Exception();
+    return false;
+  }
+  return true;
+}
